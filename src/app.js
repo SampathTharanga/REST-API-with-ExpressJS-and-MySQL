@@ -66,3 +66,11 @@ types       => are type definitions for TypeScript projects.
 
 const express = require('express')
 const app = express()
+const port = process.env.DB_PROT || 3306
+require('dotenv').config()
+
+app.get('/', (req, res) => {
+    console.log("It's working correctly.")
+})
+
+app.listen(port, () => { console.log(`Server is running on port ${port}.`)})
