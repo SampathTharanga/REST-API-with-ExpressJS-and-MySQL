@@ -6,7 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SampathTharanga/REST-API-with-ExpressJS-and-MySQL.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SampathTharanga/REST-API-with-ExpressJS-and-MySQL/issues"
+  },
+  "homepage": "https://github.com/SampathTharanga/REST-API-with-ExpressJS-and-MySQL"
 }
