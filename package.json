@@ -1,10 +1,12 @@
 {
   "name": "REST-API-with-ExpressJS-and-MySQL",
   "version": "1.0.0",
-  "description": "",
+  "description": "A demo REST API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemen"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/SampathTharanga/REST-API-with-ExpressJS-and-MySQL/issues"
   },
-  "homepage": "https://github.com/SampathTharanga/REST-API-with-ExpressJS-and-MySQL"
+  "homepage": "https://github.com/SampathTharanga/REST-API-with-ExpressJS-and-MySQL",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
 }
