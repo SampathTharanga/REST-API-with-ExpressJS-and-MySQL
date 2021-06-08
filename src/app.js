@@ -65,9 +65,15 @@ types       => are type definitions for TypeScript projects.
 */
 
 const express = require('express')
+const apiRouter = require('./api')
 const app = express()
-const port = process.env.DB_PROT || 3306
 require('dotenv').config()
+const port = process.env.DB_PORT || 3306
+
+app.use(express.json())
+
+app.use('/api/students', apiRouter)
+
 
 app.get('/', (req, res) => {
     console.log("It's working correctly.")
