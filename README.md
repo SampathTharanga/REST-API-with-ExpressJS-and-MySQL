@@ -1,4 +1,4 @@
-# REST-API-with-ExpressJS-and-MySQL
+# REST API (Express JS + MySQL)
 
 #GET table all data
 
