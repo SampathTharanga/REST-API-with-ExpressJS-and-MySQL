@@ -1,7 +1,5 @@
 # REST-API-with-ExpressJS-and-MySQL
 
-# REST-API-with-ExpressJS-and-MySQL
-
 #GET table all data
 http://127.0.0.1:3306/api/students
 
