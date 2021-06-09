@@ -1,34 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
 +++ FOLDER STRUCTURE +++
@@ -78,5 +47,7 @@ app.use('/api/students', apiRouter)
 app.get('/', (req, res) => {
     console.log("It's working correctly.")
 })
+
+app.put('/api/students', apiRouter)
 
 app.listen(port, () => { console.log(`Server is running on port ${port}.`)})

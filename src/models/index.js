@@ -12,6 +12,7 @@ const pool = mysql.createPool({
 
 let studentdb = {}
 
+//SELECT ALL DATA IN THE TABLE
 studentdb.all = () => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM student', (err, results) => {
@@ -24,9 +25,21 @@ studentdb.all = () => {
 }
 
 
+//SELECT SPECIAL STUDENT DATA IN THE TABLE
 studentdb.one = (id) => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM student WHERE id = ?', [id], (err, results) => {
+            if(err){
+                return reject(err)
+            }
+            return resolve(results[0])
+        })
+    })
+}
+
+studentdb.update = (stuDetails, id) => {
+    return new Promise((resolve, reject) => {
+        pool.query('UPDATE student SET name = ?, university = ?, course = ?, city = ?, create_at = ?, update_at = ? WHERE id = ?', [stuDetails.name, stuDetails.university, stuDetails.course, stuDetails.city, stuDetails.create_at, stuDetails.update_at, id], (err, results) => {
             if(err){
                 return reject(err)
             }

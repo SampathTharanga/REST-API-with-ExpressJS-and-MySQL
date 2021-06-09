@@ -21,5 +21,13 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+router.put('/:id', async (req, res, next) => {
+    try{
+        let results = await db.update(req.params.id, req.body)
+        res.json(results)
+    } catch(e) {
+        console.log(e)
+    }
+})
 
 module.exports = router
