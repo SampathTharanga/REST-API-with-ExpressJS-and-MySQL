@@ -23,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
     try{
-        let results = await db.update(req.params.id, req.body)
+        let results = await db.update(req.body, req.params.id)
         res.json(results)
     } catch(e) {
         console.log(e)
