@@ -2,6 +2,7 @@ const express = require('express')
 const db = require('../models')
 const router = express.Router()
 
+//GET ALL STUDENTS
 router.get('/', async (req, res, next) => {
     try{
         let results = await db.all()
@@ -11,7 +12,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-
+//GET STUDENTS BY ID
 router.get('/:id', async (req, res, next) => {
     try{
         let results = await db.one(req.params.id)
@@ -21,6 +22,24 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+
+//ADD NEW STUDENT
+router.post('/', async (req, res, next) => {
+    let data =  {
+        name: req.body.name,
+        university: req.body.university,
+        course: req.body.course,
+        city: req.body.city,
+        create_at = new Date(),
+        update_at = new Date()
+    }
+    try{
+        let results = await db.addNew(data)
+        res.json(results)
+    } catch(e) {
+        console.log(e)
+    }
+})
 
 
 

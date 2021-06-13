@@ -10,8 +10,10 @@ const pool = mysql.createPool({
 })
 
 
-//let studentdb = {}
+let studentdb = {}
 
+
+/*
 let studentdb = (student) => {
     this.name = student.name
     this.university = student.university
@@ -19,7 +21,7 @@ let studentdb = (student) => {
     this.city = student.city
     this.create_at = new Date()
     this.update_at = new Date()
-}
+}*/
 
 //GET ALL DATA IN THE TABLE
 studentdb.all = () => {
@@ -38,6 +40,19 @@ studentdb.all = () => {
 studentdb.one = (id) => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM student WHERE id = ?', [id], (err, results) => {
+            if(err){
+                return reject(err)
+            }
+            return resolve(results[0])
+        })
+    })
+}
+
+
+//ADD NEW STUDENT
+studentdb.addNew = (data)=> {
+    return new Promise ((resolve, reject) => {
+        pool.query('INSERT INTO student VALUES (?, ?, ?, ?, ?, ?)', Object.values(data), (err, results) => {
             if(err){
                 return reject(err)
             }

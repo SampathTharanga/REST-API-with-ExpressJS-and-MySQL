@@ -53,11 +53,20 @@ src
 
 const express = require('express')
 const apiRouter = require('./api')
-const app = express()
+const bodyParser = require('body-parser')
+
 require('dotenv').config()
+
+
+const app = express()
 const port = process.env.DB_PORT || 3306
 
 app.use(express.json())
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+
 
 app.use('/api/students', apiRouter)
 
