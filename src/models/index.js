@@ -10,9 +10,18 @@ const pool = mysql.createPool({
 })
 
 
-let studentdb = {}
+//let studentdb = {}
 
-//SELECT ALL DATA IN THE TABLE
+let studentdb = (student) => {
+    this.name = student.name
+    this.university = student.university
+    this.course=student.course
+    this.city = student.city
+    this.create_at = new Date()
+    this.update_at = new Date()
+}
+
+//GET ALL DATA IN THE TABLE
 studentdb.all = () => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM student', (err, results) => {

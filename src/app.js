@@ -33,6 +33,24 @@ subscribers => have the event handlers for queues, etc.
 types       => are type definitions for TypeScript projects.
 */
 
+
+/**
+ * =================================================================
+ 
+src
+ │ app.js # App Entry
+ └───api # Express route controllers for all the endpoints of the app
+ └───config # Environment variables are configuration related
+ └───jobs # Task Scheduling Definition for agenda.js
+ └───loaders # Split the startup process into modules
+ └───models # database model
+ └───services # All business logic should be here
+ └───subscribers # Event handler for asynchronous tasks
+ └───types # Type declaration file for Typescript (d.ts)
+ 
+ * =================================================================
+ */
+
 const express = require('express')
 const apiRouter = require('./api')
 const app = express()
@@ -44,10 +62,10 @@ app.use(express.json())
 app.use('/api/students', apiRouter)
 
 
+//DEFINE ROOT ROUTE
 app.get('/', (req, res) => {
     console.log("It's working correctly.")
 })
 
-app.put('/api/students', apiRouter)
-
+//LISTEN TO THE PORT
 app.listen(port, () => { console.log(`Server is running on port ${port}.`)})
