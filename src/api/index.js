@@ -25,16 +25,16 @@ router.get('/:id', async (req, res, next) => {
 
 //ADD NEW STUDENT
 router.post('/', async (req, res, next) => {
-    let data =  {
-        name: req.body.name,
-        university: req.body.university,
-        course: req.body.course,
-        city: req.body.city,
-        create_at = new Date(),
-        update_at = new Date()
-    }
     try{
-        let results = await db.addNew(data)
+        let values = [
+            req.body.name,
+            req.body.university,
+            req.body.course,
+            req.body.city,
+            new Date(),
+            new Date()
+        ]
+        let results = await db.addNew([values])
         res.json(results)
     } catch(e) {
         console.log(e)

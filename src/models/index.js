@@ -50,13 +50,13 @@ studentdb.one = (id) => {
 
 
 //ADD NEW STUDENT
-studentdb.addNew = (data)=> {
+studentdb.addNew = ([data])=> {
     return new Promise ((resolve, reject) => {
-        pool.query('INSERT INTO student VALUES (?, ?, ?, ?, ?, ?)', Object.values(data), (err, results) => {
+        pool.query(`INSERT INTO student(name, university, course, city, create_at, update_at) VALUES (?)`, [data] , (err, results) => {
             if(err){
                 return reject(err)
             }
-            return resolve(results[0])
+            return resolve([results[0]])
         })
     })
 }

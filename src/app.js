@@ -61,7 +61,7 @@ require('dotenv').config()
 const app = express()
 const port = process.env.DB_PORT || 3306
 
-app.use(express.json())
+//app.use(express.json())
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
