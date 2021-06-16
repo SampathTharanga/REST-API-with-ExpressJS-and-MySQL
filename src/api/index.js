@@ -45,7 +45,16 @@ router.post('/', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
     try{
-        let results = await db.update(req.body, req.params.id)
+        let values = [
+            req.body.name,
+            req.body.university,
+            req.body.course,
+            req.body.city,
+            new Date(),
+            new Date()
+        ]
+        let results = await db.update([values], req.params.id)
+        console.log(values)
         res.json(results)
     } catch(e) {
         console.log(e)

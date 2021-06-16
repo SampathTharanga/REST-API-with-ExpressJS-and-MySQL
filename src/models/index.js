@@ -63,9 +63,9 @@ studentdb.addNew = ([data])=> {
 
 
 //UPDATE STUDENT DETAILS
-studentdb.update = (stuDetails, id) => {
+studentdb.update = ([data], id) => {
     return new Promise((resolve, reject) => {
-        pool.query('UPDATE student SET name = ?, university = ?, course = ?, city = ?, create_at = ?, update_at = ? WHERE id = ?', [stuDetails.name, stuDetails.university, stuDetails.course, stuDetails.city, stuDetails.create_at, stuDetails.update_at, id], (err, results) => {
+        pool.query('UPDATE student SET name = ?, university = ?, course = ?, city = ?, create_at = ?, update_at = ? WHERE id = ?', [data.name, data.university, data.course, data.city, data.create_at, data.update_at, id], (err, results) => {
             if(err){
                 return reject(err)
             }
