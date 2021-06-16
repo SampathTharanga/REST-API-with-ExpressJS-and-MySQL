@@ -53,8 +53,7 @@ router.put('/:id', async (req, res, next) => {
             new Date(),
             new Date()
         ]
-        let results = await db.update([values], req.params.id)
-        console.log(values)
+        let results = await db.update([values], req.params.id)               
         res.json(results)
     } catch(e) {
         console.log(e)
