@@ -65,7 +65,7 @@ studentdb.addNew = ([data])=> {
 //UPDATE STUDENT DETAILS
 studentdb.update = (data, id) => {
     return new Promise((resolve, reject) => {
-        console.log(data) 
+        //console.log(data) 
         pool.query('UPDATE student SET name = ?, university = ?, course = ?, city = ?, update_at = ? WHERE id = ?', [data.name, data.university, data.course, data.city, new Date(), id], (err, results) => {
             if(err){
                 return reject(err)
@@ -75,5 +75,17 @@ studentdb.update = (data, id) => {
     })
 }
 
+
+//DELETE STUDENT DETAILS
+studentdb.delete = (id) => {
+    return new Promise((resolve, reject) => {
+        pool.query(`DELETE FROM student WHERE id=?`, [id], (err, results) => {
+            if(err){
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })
+}
 
 module.exports = studentdb

@@ -42,11 +42,22 @@ router.post('/', async (req, res, next) => {
 })
 
 
-
+//UPDATE STUDENT DETAILS
 router.put('/:id', async (req, res, next) => {
     try{
         let results = await db.update(req.body, req.params.id)               
         res.json(results)
+    } catch(e) {
+        console.log(e)
+    }
+})
+
+
+//DELETE STUDENT DETAILS
+router.delete('/:id', async (req, res, next) => {
+    try{
+        let results = await db.delete(req.params.id)
+        res.json|(results)
     } catch(e) {
         console.log(e)
     }
